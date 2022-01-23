@@ -1,6 +1,7 @@
 import { Flex } from '@chakra-ui/react';
 import { Banner } from '../components/Banner';
 import { Header } from '../components/Header';
+import { Separator } from '../components/Separator';
 import { TravelTypes } from '../components/TravelTypes';
 
 export default function Home(): JSX.Element {
@@ -8,8 +9,9 @@ export default function Home(): JSX.Element {
         <>
             <Header />
             <Banner />
-            <Flex dir="column" maxW={1440} m="auto" p={2}>
+            <Flex as="main" direction="column" maxW={1440} m="auto" p={2}>
                 <TravelTypes />
+                <Separator />
             </Flex>
         </>
     );
