@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, Grid, useBreakpointValue } from '@chakra-ui/react';
 import { TravelType } from './TravelType';
 
 import cocktailSvg from '../../assets/cocktail.svg';
@@ -36,6 +36,33 @@ const types = [
 ];
 
 export function TravelTypes(): JSX.Element {
+    const breakpoint = useBreakpointValue({
+        base: 'mobile',
+        md: 'desktop',
+    });
+
+    if (breakpoint === 'mobile') {
+        return (
+            <Flex
+                flexWrap="wrap"
+                as="section"
+                alignItems="center"
+                justifyContent="center"
+                w="100%"
+                mt="20"
+            >
+                {types.map(type => (
+                    <TravelType
+                        src={type.src}
+                        alt={type.alt}
+                        description={type.description}
+                        key={type.alt}
+                    />
+                ))}
+            </Flex>
+        );
+    }
+
     return (
         <Flex
             as="section"
@@ -49,6 +76,7 @@ export function TravelTypes(): JSX.Element {
                     src={type.src}
                     alt={type.alt}
                     description={type.description}
+                    key={type.alt}
                 />
             ))}
         </Flex>

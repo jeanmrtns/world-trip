@@ -1,6 +1,11 @@
-import { Flex, Image, Text } from '@chakra-ui/react';
+import { Flex, Image, Text, useBreakpointValue } from '@chakra-ui/react';
 
 export function Banner(): JSX.Element {
+    const breakpoint = useBreakpointValue({
+        base: 'mobile',
+        md: 'desktop',
+    });
+
     return (
         <Flex
             w="100vw"
@@ -11,6 +16,7 @@ export function Banner(): JSX.Element {
             bgPos="center"
             bgSize="cover"
             h={368}
+            p={['4', '0']}
         >
             <Flex direction="column">
                 <Flex
@@ -27,9 +33,16 @@ export function Banner(): JSX.Element {
                     sonhou.
                 </Text>
             </Flex>
-            <Flex alignSelf="flex-end" mb="-4">
-                <Image w="100%" src="/airplane.svg" alt="Airplane" h={250} />
-            </Flex>
+            {breakpoint !== 'mobile' && (
+                <Flex alignSelf="flex-end" mb="-4">
+                    <Image
+                        w="100%"
+                        src="/airplane.svg"
+                        alt="Airplane"
+                        h={250}
+                    />
+                </Flex>
+            )}
         </Flex>
     );
 }
