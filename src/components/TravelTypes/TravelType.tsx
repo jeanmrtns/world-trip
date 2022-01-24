@@ -30,7 +30,7 @@ export function TravelType({
                 mt="4"
             >
                 <Image src={dotSvg.src} alt={alt} height={2} width={2} mr="2" />
-                <Text fontWeight="semibold" color="gray.600" fontSize="12">
+                <Text fontWeight="semibold" color="gray.600" fontSize="16">
                     {description}
                 </Text>
             </Flex>
