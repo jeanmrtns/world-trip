@@ -14,9 +14,20 @@ export function CityCard({
     flagUrl,
 }: CityCardProps): JSX.Element {
     return (
-        <Flex as="div" flexDir="column" borderColor="orange">
-            <Image height={200} src={cityUrl} alt={cityName} />
-            <Flex bg="white" align="center" px="4">
+        <Flex
+            border="1px"
+            borderRadius="md"
+            as="div"
+            flexDir="column"
+            borderColor="orange"
+        >
+            <Image
+                height={200}
+                src={cityUrl}
+                alt={cityName}
+                borderTopRadius="md"
+            />
+            <Flex bg="white" align="center" px="4" borderBottomRadius="md">
                 <Flex
                     w="100%"
                     flexDir="column"

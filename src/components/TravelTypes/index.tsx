@@ -43,9 +43,9 @@ export function TravelTypes(): JSX.Element {
 
     if (breakpoint === 'mobile') {
         return (
-            <Flex
-                flexWrap="wrap"
+            <Grid
                 as="section"
+                templateColumns="repeat(2, 1fr)"
                 alignItems="center"
                 justifyContent="center"
                 w="100%"
@@ -59,7 +59,7 @@ export function TravelTypes(): JSX.Element {
                         key={type.alt}
                     />
                 ))}
-            </Flex>
+            </Grid>
         );
     }
 

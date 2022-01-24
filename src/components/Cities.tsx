@@ -1,4 +1,4 @@
-import { Flex, Grid, Text } from '@chakra-ui/react';
+import { Flex, Grid, Text, useBreakpointValue } from '@chakra-ui/react';
 import { CityCard } from './CityCard';
 
 const cities = [
@@ -45,6 +45,42 @@ const cities = [
 ];
 
 export function Cities(): JSX.Element {
+    const breakpoint = useBreakpointValue({
+        base: 'mobile',
+        md: 'desktop',
+    });
+
+    if (breakpoint === 'mobile') {
+        return (
+            <Flex flexDir="column" mt="20" w="90%" mx="auto">
+                <Text
+                    as="h2"
+                    fontSize="3xl"
+                    fontWeight="medium"
+                    color="gray.600"
+                >
+                    Cidades +100
+                </Text>
+                <Grid
+                    as="section"
+                    mt="10"
+                    templateColumns="repeat(1, 1fr)"
+                    gap="8"
+                >
+                    {cities.map(city => (
+                        <CityCard
+                            key={city.cityName}
+                            cityName={city.cityName}
+                            country={city.country}
+                            flagUrl={city.flagUrl}
+                            cityUrl={city.cityUrl}
+                        />
+                    ))}
+                </Grid>
+            </Flex>
+        );
+    }
+
     return (
         <Flex flexDir="column" mt="20">
             <Text as="h2" fontSize="3xl" fontWeight="medium" color="gray.600">
